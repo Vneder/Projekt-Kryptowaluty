@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #252525;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+img {
+    width: 10%;
+}
+
+.navbar {
+    width: 100wv;
+    display: flex;
+}
+
+.logo {}
+
+.logo__image {}
+
+.navbar__burger {}
+
+.navbar__burger-image {}
+
+.navbar__menu {}
+
+.navbar__link {}
+
+.main {}
+
+.section__hero {}
+
+.hero__title {}
+
+.hero__card-bitcoin {}
+
+.bitcoin__title {}
+
+.bitcoin__logo {}
+
+.bitcoin__value {}
+
+.hero__card-ethereum {}
+
+.ethereum__title {}
+
+.ethereum__logo {}
+
+.ethereum__value {}
+
+.hero__card-tether {}
+
+.litecoin__logo {}
+
+.litecoin__value {}
+
+.tether__title {}
+
+.tether__logo {}
+
+.tether__value {}
+
+.hero__card-solana {}
+
+.solana__title {}
+
+.solana__logo {}
+
+.solana__value {}
+
+.section__chart {}
+
+.aside {}
+
+.section__currencies {}
+
+.article__bitcoin {}
+
+.bitcoin__info {}
+
+.article__ethereum {}
+
+.ethereum__info {}
+
+.article__litecoin {}
+
+.litecoin__info {}
+
+.article__tether {}
+
+.tether__info {}
+
+.article__solana {}
+
+.solana__info {}
+
+.section__tutorials {}
+
+.section__tutorials-title {}
+
+.section__tutorials-subtitle {}
+
+.section_tutorials-card {}
+
+.section__tutorials-card-title {}
+
+.footer {}
