@@ -10,105 +10,310 @@ body {
     font-family: 'Open Sans', sans-serif;
     margin-left: 5vw;
     margin-right: 5vw;
+    text-align: center;
+    scroll-behavior: smooth;
 }
 
 img {
     width: 10%;
 }
 
-.navbar {
-    width: 100wv;
-    display: flex;
+.cryptos img {
+    width: auto;
+    height: 40%;
 }
 
-.logo {}
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
 
-.logo__image {}
+.navbar__link {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 1rem;
+}
 
-.navbar__burger {}
+.section__hero {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+}
 
-.navbar__burger-image {}
+.hero__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
 
-.navbar__menu {}
+.cryptos {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background-color: #343434;
+    border-radius: 20px;
+}
 
-.navbar__link {}
 
-.main {}
+.hero__card-bitcoin,
+.hero__card-ethereum,
+.hero__card-tether,
+.hero__card-solana,
+.hero__card-litecoin {
+    height: 250px;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
 
-.section__hero {}
+.bitcoin__title,
+.ethereum__title,
+.litecoin__title,
+.tether__title,
+.solana__title {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
 
-.hero__title {}
+.bitcoin__logo,
+.ethereum__logo,
+.litecoin__logo,
+.tether__logo,
+.solana__logo {
+    margin: 0 auto;
+}
 
-.hero__card-bitcoin {}
+.bitcoin__value,
+.ethereum__value,
+.litecoin__value,
+.tether__value,
+.solana__value {
+    font-size: 1.1rem;
+    font-weight: lighter;
+}
 
-.bitcoin__title {}
+.section__chart {
+    margin-bottom: 2rem;
+    width: 100%;
+}
 
-.bitcoin__logo {}
+.bitcoin__info-title {
+    color: #ccc;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
-.bitcoin__value {}
+.bitcoin__info-text {
+    color: #999;
+    font-size: 18px;
+    line-height: 1.5;
+}
 
-.hero__card-ethereum {}
 
-.ethereum__title {}
+.radius-container {
+    height: 1rem;
+    background-color: #343434;
+    border-radius: 20px 20px 0 0;
+}
 
-.ethereum__logo {}
+.aside {
+    background-color: #343434;
+    padding: 1rem;
+    border-radius: 0 0 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
 
-.ethereum__value {}
+.article__title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
 
-.hero__card-tether {}
+.article__info {
+    margin-bottom: 1rem;
+}
 
-.litecoin__logo {}
+.article__bitcoin,
+.article__ethereum,
+.article__litecoin,
+.article__solana,
+.article__tether {
+    display: flex;
+    min-height: 250px;
+    align-items: center;
+    padding: 2rem 6rem 2rem 2rem;
+    gap: 1rem;
+    background-color: #343434;
+    border-radius: 20px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
 
-.litecoin__value {}
+.bitcoin__info,
+.ethereum__info,
+.litecoin__info,
+.tether__info,
+.solana__info {
+    width: 75%;
+}
 
-.tether__title {}
+.bitcoin__info-title,
+.ethereum__info-title,
+.litecoin__info-title,
+.tether__info-title,
+.solana__info-title {
+    color: #ccc;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
 
-.tether__logo {}
+.bitcoin__info-text,
+.ethereum__info-text,
+.litecoin__info-text,
+.tether__info-text,
+.solana__info-text {
+    color: #999;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
 
-.tether__value {}
+.section__tutorials {
+    background-color: #343434;
+    border-radius: 20px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
 
-.hero__card-solana {}
+.section__tutorials-title {
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
+    color: #ccc;
+}
 
-.solana__title {}
+.section__tutorials-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    color: #999;
+}
 
-.solana__logo {}
 
-.solana__value {}
+.tutorials {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 
-.section__chart {}
+.section__tutorials-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #454545;
+    padding: 1rem;
+    border-radius: 20px;
+    width: 30%;
+    margin-bottom: 0.5rem;
+}
 
-.aside {}
+a {
+    width: 100%;
+    height: 100%;
+}
 
-.section__currencies {}
+.img-link {
+    width: 90%;
+    padding: 1rem;
+}
 
-.article__bitcoin {}
+.section__tutorials-card-title {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 0.5rem;
+}
 
-.bitcoin__info {}
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 0.8rem;
+    background-color: #343434;
+    padding-top: 0.5rem;
+    padding-bottom: 0.3rem;
+    border-radius: 20px 20px 0 0;
+    min-width: 50%;
+    color: #ccc;
+    margin: 1rem auto 0;
+}
 
-.article__ethereum {}
+.contact {
+    width: auto;
+}
 
-.ethereum__info {}
+@media (max-width: 768px) {
 
-.article__litecoin {}
+    .hero__card-bitcoin,
+    .hero__card-ethereum,
+    .hero__card-tether,
+    .hero__card-solana,
+    .hero__card-litecoin {
+        width: 60%;
+        height: 150px;
+        margin-bottom: 1rem;
+    }
 
-.litecoin__info {}
+    .article__bitcoin,
+    .article__ethereum,
+    .article__litecoin,
+    .article__solana,
+    .article__tether {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 3rem;
+    }
 
-.article__tether {}
+    .bitcoin__info,
+    .ethereum__info,
+    .litecoin__info,
+    .tether__info,
+    .solana__info {
+        width: 100%;
+    }
 
-.tether__info {}
+    img {
+        width: 30%;
+    }
 
-.article__solana {}
+    .tutorials {
+        display: flex;
+        flex-direction: column;
+    }
 
-.solana__info {}
+    .section__tutorials-card {
+        flex-direction: column;
+        padding: 1rem;
+        width: 100%;
+        margin-bottom: 1rem;
+        gap: 1rem;
+    }
 
-.section__tutorials {}
+    .aside {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
 
-.section__tutorials-title {}
-
-.section__tutorials-subtitle {}
-
-.section_tutorials-card {}
-
-.section__tutorials-card-title {}
-
-.footer {}
+}

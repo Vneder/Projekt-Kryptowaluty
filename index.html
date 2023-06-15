@@ -7,130 +7,201 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crypto World</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="./images/logo.png" alt="Logo Crypto World" class="logo__image">
-        </div>
-        <div class="navbar__burger">
-            <img src="" alt="" class="navbar__burger-image">
-        </div>
-        <menu class="navbar__menu">
-            <a href="" class="navbar__link"></a>
-            <a href="" class="navbar__link"></a>
-            <a href="" class="navbar__link"></a>
-        </menu>
-    </nav>
     <main class="main">
         <section class="section__hero">
             <h1 class="hero__title">Crypto World</h1>
-            <div class="hero__card-bitcoin">
-                <h1 class="bitcoin__title">Bitcoin</h1>
-                <img src="images/bitcoin.png" alt="" class="bitcoin__logo">
-                <p class="bitcoin__value"></p>
-            </div>
-            <div class="hero__card-ethereum">
-                <h1 class="ethereum__title">Ethereum</h1>
-                <img src="images/ethereum.png" alt="" class="ethereum__logo">
-                <p class="ethereum__value"></p>
-            </div>
-            <div class="hero__card-tether">
-                <h1 class="bitcoin__title">Litecoin</h1>
-                <img src="images/litecoin.png" alt="" class="litecoin__logo">
-                <p class="litecoin__value"></p>
-            </div>
-            <div class="hero__card-tether">
-                <h1 class="tether__title">Tether</h1>
-                <img src="images/tether.png" alt="" class="tether__logo">
-                <p class="tether__value"></p>
-            </div>
-            <div class="hero__card-solana">
-                <h1 class="solana__title">Solana</h1>
-                <img src="images/solana.png" alt="" class="solana__logo">
-                <p class="solana__value"></p>
+            <section class="waluta">
+                Wybierz walutę w której chcesz widzieć ceny:
+                <select id="currencySelect">
+                    <option value="usd">USD</option>
+                    <option value="eur">EUR</option>
+                    <option value="pln">PLN</option>
+                </select>
+            </section>
+            <div class="cryptos">
+                <div class="hero__card-bitcoin">
+                    <h1 class="bitcoin__title">Bitcoin</h1>
+                    <img src="images/bitcoin.png" alt="Logo bitocin" class="bitcoin__logo">
+                    <p class="bitcoin__value"></p>
+                </div>
+                <div class="hero__card-ethereum">
+                    <h1 class="ethereum__title">Ethereum</h1>
+                    <img src="images/ethereum.png" alt="Logo ethereum" class="ethereum__logo">
+                    <p class="ethereum__value"></p>
+                </div>
+                <div class="hero__card-litecoin">
+                    <h1 class="bitcoin__title">Litecoin</h1>
+                    <img src="images/litecoin.png" alt="Logo litecoin" class="litecoin__logo">
+                    <p class="litecoin__value"></p>
+                </div>
+                <div class="hero__card-tether">
+                    <h1 class="tether__title">Tether</h1>
+                    <img src="images/tether.png" alt="Logo tether" class="tether__logo">
+                    <p class="tether__value"></p>
+                </div>
+                <div class="hero__card-solana">
+                    <h1 class="solana__title">Solana</h1>
+                    <img src="images/solana.png" alt="Logo solana" class="solana__logo">
+                    <p class="solana__value"></p>
+                </div>
             </div>
         </section>
         <section class="section__chart">
-            <!-- Miejsce na wykres -->
+            <div class="radius-container"></div>
+            <div id="chart-container"></div>
+            <aside class="aside">
+                <h3>Edytuj wykres</h3>
+                <div class="cryptoSelect">
+                    <label for="cryptocurrencySelect">Kryptowaluta:</label>
+                    <select id="cryptocurrencySelect" onchange="handleCryptocurrencyChange()">
+                        <option value="bitcoin">Bitcoin</option>
+                        <option value="ethereum">Ethereum</option>
+                        <option value="litecoin">Litecoin</option>
+                        <option value="tether">Tether</option>
+                        <option value="solana">Solana</option>
+                    </select>
+                </div>
+                <div class="cryptoSelect">
+                    <label for="timeRangeSelect">Czas:</label>
+                    <select id="timeRangeSelect" onchange="handleTimeRangeChange()">
+                        <option value="48">48 Godzin</option>
+                        <option value="24">24 Godziny</option>
+                        <option value="12">12 Godziny</option>
+                        <option value="3">3 Godziny</option>
+                    </select>
+                </div>
+
+            </aside>
         </section>
-        <aside class="aside">
-            <!-- Miejsce do edytowania informacji z wykresu -->
-        </aside>
         <section class="section__currencies">
             <article class="article__bitcoin">
-                <img src="images/bitcoin.png" alt="" class="bitcoin__logo">
-                <p class="bitcoin__info">
-                    Bitcoin - najbardziej znana kryptowaluta, wprowadzona w 2009 roku. Bitcoin jest zdecentralizowaną
-                    walutą cyfrową, która działa na technologii blockchain. Jego głównym celem jest umożliwienie
-                    szybkich i tanich transakcji bez pośredników. Bitcoin jest akceptowany jako forma płatności przez
-                    wiele sklepów online, a także jako inwestycja przez wielu ludzi na całym świecie.
-                </p>
-                <p class="bitcoin__value"></p>
+                <img src="images/bitcoin.png" alt="Logo bitcoin" class="bitcoin__logo">
+                <div class="bitcoin__info">
+                    <h2 class="bitcoin__info-title">Bitcoin - najbardziej znana kryptowaluta</h2>
+                    <p class="bitcoin__info-text">
+                        Bitcoin został wprowadzony w 2009 roku i jest zdecentralizowaną walutą cyfrową, działającą na
+                        technologii blockchain.
+                        Jego głównym celem jest umożliwienie szybkich i tanich transakcji bez pośredników.
+                        Bitcoin jest akceptowany jako forma płatności przez wiele sklepów online, a także jako
+                        inwestycja przez wielu ludzi na całym świecie.
+                    </p>
+                    <br>
+                    Aktualny kurs:
+                    <p class="bitcoin__value"></p>
+                </div>
+
             </article>
             <article class="article__ethereum">
-                <img src="images/ethereum.png" alt="" class="ethereum__logo">
-                <p class="ethereum__info">
-                    Ethereum - to druga co do wielkości kryptowaluta, wprowadzona w 2015 roku. Ethereum różni się od
-                    Bitcoina tym, że oprócz transakcji, umożliwia tworzenie i uruchamianie aplikacji zdecentralizowanych
-                    (tzw. smart kontraktów). Ethereum jest również oparty na technologii blockchain i jest
-                    wykorzystywany do
-                    tworzenia i handlu tokenami, takimi jak NFT.
-                </p>
-                <p class="ethereum__value"></p>
+                <img src="images/ethereum.png" alt="Logo ethereum" class="ethereum__logo">
+                <div class="ethereum__info">
+                    <h2 class="ethereum__info-title">Ethereum - druga co do wielkości kryptowaluta</h2>
+                    <p class="ethereum__info-text">
+                        Ethereum zostało wprowadzone w 2015 roku.
+                        Różni się od Bitcoina tym, że oprócz transakcji, umożliwia tworzenie i uruchamianie aplikacji
+                        zdecentralizowanych
+                        (tzw. smart kontraktów). Ethereum jest również oparte na technologii blockchain i jest
+                        wykorzystywane do
+                        tworzenia i handlu tokenami, takimi jak NFT.
+                    </p>
+                    <br>
+                    Aktualny kurs:
+                    <p class="ethereum__value"></p>
+                </div>
             </article>
             <article class="article__litecoin">
-                <img src="images/litecoin.png" alt="" class="litecoin__logo">
-                <p class="litecoin__info">
-                    Litecoin - to kryptowaluta, która powstała w 2011 roku na bazie kodu źródłowego Bitcoina. Jest to
-                    szybsza i tańsza alternatywa dla Bitcoina, która umożliwia przeprowadzanie transakcji w ciągu kilku
-                    minut zamiast kilku godzin. Litecoin jest również wykorzystywany jako forma płatności i inwestycja.
-                </p>
-                <p class="litecoin__value"></p>
+                <img src="images/litecoin.png" alt="Logo litecoin" class="litecoin__logo">
+                <div class="litecoin__info">
+                    <h2 class="litecoin__info-title">Litecoin - szybsza i tańsza alternatywa dla Bitcoina</h2>
+                    <p class="litecoin__info-text">
+                        Litecoin powstał w 2011 roku na bazie kodu źródłowego Bitcoina. Jest to kryptowaluta, która
+                        oferuje szybsze
+                        i tańsze transakcje w porównaniu do Bitcoina. Przelewy Litecoinem mogą być realizowane w ciągu
+                        kilku minut,
+                        w przeciwieństwie do kilku godzin, które są czasem potrzebne dla transakcji Bitcoinem. Litecoin
+                        jest również
+                        akceptowany jako forma płatności i stanowi popularną opcję inwestycji.
+                    </p>
+                    <br>
+                    Aktualny kurs:
+                    <p class="litecoin__value"></p>
+                </div>
+
             </article>
             <article class="article__tether">
-                <img src="images/tether.png" alt="" class="tether__logo">
-                <p class="tether__info">
-                    Tether - to kryptowaluta oparta na technologii blockchain, która ma stabilną wartość równą 1 dolara
-                    amerykańskiego. Tether jest używany jako forma płatności i inwestycja, a także służy jako
-                    zabezpieczenie
-                    przed zmiennością innych kryptowalut. Tether jest emitowany przez firmę Tether Limited, która
-                    zapewnia,
-                    że za każdy token Tether jest odpowiadająca mu ilość dolarów amerykańskich
-                </p>
-                <p class="tether__value"></p>
+                <img src="images/tether.png" alt="Logo tether" class="tether__logo">
+                <div class="tether__info">
+                    <h2 class="tether__info-title">Tether - stabilna kryptowaluta o wartości 1 dolara
+                    </h2>
+                    <p class="tether__info-text">
+                        Tether to kryptowaluta oparta na technologii blockchain, która utrzymuje stabilną wartość równą
+                        1 dolarowi
+                        amerykańskiemu. Jest używana jako forma płatności i inwestycji oraz służy jako zabezpieczenie
+                        przed
+                        zmiennością innych kryptowalut. Tether jest emitowany przez firmę Tether Limited, która
+                        zapewnia, że za
+                        każdy token Tether jest odpowiadająca mu ilość dolarów amerykańskich.
+                    </p>
+                    <br>
+                    Aktualny kurs:
+                    <p class="tether__value"></p>
+
+                </div>
+
             </article>
             <article class="article__solana">
-                <img src="images/solana.png" alt="" class="solana__logo">
-                <p class="solana__info">
-                    Solana - to kryptowaluta i platforma blockchain, która została wprowadzona w 2020 roku. Solana ma na
-                    celu umożliwienie przeprowadzania tysięcy transakcji na sekundę, co jest znacznie szybsze niż inne
-                    kryptowaluty. Solana jest również wykorzystywany do tworzenia aplikacji zdecentralizowanych i handlu
-                    tokenami.
-                </p>
-                <p class="solana__value"></p>
+                <img src="images/solana.png" alt="Logo solana" class="solana__logo">
+                <div class="solana__info">
+                    <h2 class="solana__info-title">Solana - platforma blockchain o szybkich transakcjach</h2>
+                    <p class="solana__info-text">
+                        Solana to kryptowaluta i platforma blockchain wprowadzona w 2020 roku. Jej głównym celem jest
+                        umożliwienie
+                        przeprowadzania tysięcy transakcji na sekundę, co stanowi znaczną przewagę w porównaniu do
+                        innych
+                        kryptowalut. Solana jest również wykorzystywana do tworzenia aplikacji zdecentralizowanych i
+                        handlu tokenami.
+                    </p>
+                    <br>
+                    Aktualny kurs:
+                    <p class="solana__value"></p>
+                </div>
+
             </article>
         </section>
         <section class="section__tutorials">
             <h1 class="section__tutorials-title">Od czego zacząć?</h1>
             <h3 class="section__tutorials-subtitle">Odkryj świat kryptowalut i zacznij inwestować już dziś!</h3>
-            <div class="section_tutorials-card">
-                <h4 class="section__tutorials-card-title">Kryptowaluty: podstawy dla początkujących</h4>
-            </div>
-            <div class="section_tutorials-card">
-                <h4 class="section__tutorials-card-title">Poradnik: Kryptowaluty od A do Z</h4>
-            </div>
-            <div class="section_tutorials-card">
-                <h4 class="section__tutorials-card-title">Kryptowaluty – jak zacząć inwestować? Informacje dla
-                    początkujących</h4>
+            <div class="tutorials">
+                <div class="section__tutorials-card">
+                    <a href="https://moniaki.pl/podstawy-kryptowalut-co-to-kryptowaluty-poradnik/" target="_blank">
+                        <img src="./images/link.jpg" alt="bitcoin na złotym tle" class="img-link">
+                    </a>
+                    <h4 class="section__tutorials-card-title">Podstawy dla początkujących</h4>
+                </div>
+                <div class="section__tutorials-card">
+                    <a href="https://mojplanb.pl/poradnik-kryptowaluty-od-a-do-z" class="link" target="_blank">
+                        <img src="./images/link2.jpg" alt="Monety w trójwymiarowej formie" class="img-link">
+                    </a>
+                    <h4 class="section__tutorials-card-title">Kryptowaluty od A do Z</h4>
+                </div>
+                <div class="section__tutorials-card">
+                    <a href="https://www.najlepszekonto.pl/kryptowaluty-jak-zaczac-inwestowac" class="link"
+                        target="_blank">
+                        <img src="./images/link3.jpg" alt="Bitcoin na tle wykresów" class="img-link">
+                    </a>
+                    <h4 class="section__tutorials-card-title">Jak zacząć inwestować?</h4>
+                </div>
             </div>
         </section>
     </main>
     <footer class="footer">
-        Crypto World 2023 &copy;
+        <a href="#" class="contact">kontakt@cryptoworld.com</a>
+        <p>Crypto World 2023 &copy;</p>
     </footer>
-
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="app.js"></script>
 </body>
 
